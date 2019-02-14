@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Online API</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container" style="width:fit-content;margin-left:29%"> 
+      <fieldset>
+
+        <form action="/" method="post">
+           <h1 >Online Weather</h1>
+          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+          <input type="submit" class="ghost-button" value="Get Weather">
+        </form>
+        <% if(locals.weather !== null){ %>
+          <p style="color:green"><%= locals.weather %></p>
+          <img src='<%=locals.imgUIsource%>'>
+          <p style="color:indianred"><%=locals.LocalUItime%></p>
+          <p style="color: indianred"> <%=locals.lastupdated%></p>
+            
+        <% } %>
+
+        <% if(locals.error !== null){ %>
+          <p style="color:red"><%= locals.error %></p>
+        <% } %>
+      </fieldset>
+    </div>
+  </body>
+</html>
